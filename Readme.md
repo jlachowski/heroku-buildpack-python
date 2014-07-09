@@ -1,8 +1,12 @@
-Heroku buildpack: Python
-========================
+Heroku buildpack: Python, NumPy, SciPy
+======================================
 
-This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks) for Python apps, powered by [pip](http://www.pip-installer.org/).
+This is a [Heroku buildpack](http://devcenter.heroku.com/articles/buildpacks)
+for Python apps, powered by [pip](http://www.pip-installer.org/) that has been
+modified to add support for SciPy and NumPy libraries out of necessity since
+these libraries simply do not compile on Heroku.
 
+![One does not simply deploy scipy on Heroku](http://i.imgur.com/lVss0ES.jpg)
 
 Usage
 -----
