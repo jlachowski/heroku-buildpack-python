@@ -36,5 +36,9 @@ if (grep -iq -e "scipy" requirements.txt) then
     rm -r venv
   fi
 
+  if [ -d ${VENDORED_GIT_NAME} ]; then
+    rm -rf ${VENDORED_GIT_NAME}
+  fi
+
   cd ..
 fi
