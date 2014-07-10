@@ -30,8 +30,6 @@ else
 fi
 
 export ATLAS=$(pwd)/vendor/lib/libatlas.a
-export LIBRARY_PATH=$(pwd)/vendor/lib
-export LD_LIBRARY_PATH=$(pwd)/vendor/lib
 
 # Clean up
 if [ -d ${VENDORED_GIT_NAME} ]; then
