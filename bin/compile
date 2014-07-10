@@ -215,6 +215,36 @@ bpwatch start pylibmc_install
   source $BIN_DIR/steps/pylibmc
 bpwatch stop pylibmc_install
 
+# GNU Fortran support.
+bpwatch start gfortran_install
+  source $BIN_DIR/steps/gfortran
+bpwatch stop gfortran_install
+
+# BLAS support.
+bpwatch start blas_install
+  source $BIN_DIR/steps/blas
+bpwatch stop blas_install
+
+# ATLAS support.
+bpwatch start atlas_install
+  source $BIN_DIR/steps/atlas
+bpwatch stop atlas_install
+
+# LAPACK support.
+bpwatch start lapack_install
+  source $BIN_DIR/steps/lapack
+bpwatch stop lapack_install
+
+# NumPy support.
+bpwatch start numpy_install
+  source $BIN_DIR/steps/numpy
+bpwatch stop numpy_install
+
+# SciPy support.
+bpwatch start scipy_install
+  source $BIN_DIR/steps/scipy
+bpwatch stop scipy_install
+
 # Install Mercurial if it appears to be required.
 if (grep -Fiq "hg+" requirements.txt) then
   bpwatch start mercurial_install
