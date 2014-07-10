@@ -235,16 +235,6 @@ bpwatch start lapack_install
   source $BIN_DIR/steps/lapack
 bpwatch stop lapack_install
 
-# NumPy support.
-bpwatch start numpy_install
-  source $BIN_DIR/steps/numpy
-bpwatch stop numpy_install
-
-# SciPy support.
-bpwatch start scipy_install
-  source $BIN_DIR/steps/scipy
-bpwatch stop scipy_install
-
 # Install Mercurial if it appears to be required.
 if (grep -Fiq "hg+" requirements.txt) then
   bpwatch start mercurial_install
