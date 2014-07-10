@@ -25,6 +25,7 @@ if (grep -iq -e "numpy" requirements.txt) then
     puts-step "Using cached numpy."
   else
     puts-step "Creating/downloading numpy bdist."
+    git clone ${VENDORED_GIT_REPO} > /dev/null
     tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_NUMPY}.tar.gz > /dev/null
   fi
 

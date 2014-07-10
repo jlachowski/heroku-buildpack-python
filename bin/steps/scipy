@@ -25,6 +25,7 @@ if (grep -iq -e "scipy" requirements.txt) then
     puts-step "Using cached scipy."
   else
     puts-step "Creating/downloading scipy bdist."
+    git clone ${VENDORED_GIT_REPO} > /dev/null
     tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
   fi
 
