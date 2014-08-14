@@ -235,6 +235,11 @@ bpwatch start lapack_install
   source $BIN_DIR/steps/lapack
 bpwatch stop lapack_install
 
+# NumPy support.
+bpwatch start numpy_install
+  source $BIN_DIR/steps/numpy
+bpwatch stop numpy_install
+
 # SciPy support.
 bpwatch start scipy_install
   source $BIN_DIR/steps/scipy
