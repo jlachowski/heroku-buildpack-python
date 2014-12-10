@@ -26,7 +26,7 @@ LEGACY_TRIGGER="lib/python2.7"
 PROFILE_PATH="$BUILD_DIR/.profile.d/python.sh"
 
 DEFAULT_PYTHON_VERSION="python-2.7.8"
-DEFAULT_PYTHON_STACK="cedar"
+DEFAULT_PYTHON_STACK="cedar-14"
 PYTHON_EXE="/app/.heroku/python/bin/python"
 PIP_VERSION="1.5.6"
 SETUPTOOLS_VERSION="7.0"
