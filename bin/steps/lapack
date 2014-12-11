@@ -10,7 +10,7 @@
 # This script is invoked by [`bin/compile`](/).
 
 VENDORED_GIT_NAME="lapack-bin"
-VENDORED_GIT_REPO="git://github.com/VerdigrisTech/${VENDORED_GIT_NAME}.git"
+VENDORED_GIT_REPO="git://github.com/jlachowski/${VENDORED_GIT_NAME}.git"
 VENDORED_PACKAGE="lapack"
 
 # Syntax sugar
