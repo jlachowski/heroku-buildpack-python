@@ -16,29 +16,26 @@ VENDORED_SCIPY="scipy-0.14.0"
 # Syntax sugar
 source $BIN_DIR/utils
 
-# If numpy exists within requirements.txt then use binaries.
-if (grep -iq -e "scipy" requirements.txt) then
-  puts-step "SciPy detected in requirements.txt. Bootstrapping binaries."
-  cd .heroku
+puts-step "SciPy detected in requirements.txt. Bootstrapping binaries."
+cd .heroku
 
-  if [ -d "python/lib/python2.7/site-packages/scipy" ]; then
-    puts-step "Using cached scipy."
-  else
-    puts-step "Creating/downloading scipy bdist."
-    git clone ${VENDORED_GIT_REPO} > /dev/null
-    tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
-  fi
-
-  # Move everything from venv directory to python directory
-  if [ -d "venv" ]; then
-    puts-step "Moving SciPy to Python directory."
-    cp -a venv/* python/
-    rm -r venv
-  fi
-
-  if [ -d ${VENDORED_GIT_NAME} ]; then
-    rm -rf ${VENDORED_GIT_NAME}
-  fi
-
-  cd ..
+if [ -d "python/lib/python2.7/site-packages/scipy" ]; then
+  puts-step "Using cached scipy."
+else
+  puts-step "Creating/downloading scipy bdist."
+  git clone ${VENDORED_GIT_REPO} > /dev/null
+  tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_SCIPY}.tar.gz > /dev/null
 fi
+
+# Move everything from venv directory to python directory
+if [ -d "venv" ]; then
+  puts-step "Moving SciPy to Python directory."
+  cp -a venv/* python/
+  rm -r venv
+fi
+
+if [ -d ${VENDORED_GIT_NAME} ]; then
+  rm -rf ${VENDORED_GIT_NAME}
+fi
+
+cd ..
