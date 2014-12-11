@@ -16,7 +16,6 @@ VENDORED_SCIPY="scipy-0.14.0"
 # Syntax sugar
 source $BIN_DIR/utils
 
-puts-step "SciPy detected in requirements.txt. Bootstrapping binaries."
 cd .heroku
 
 if [ -d "python/lib/python2.7/site-packages/scipy" ]; then
