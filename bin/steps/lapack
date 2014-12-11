@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# This script serves as the LAPACK build step of the
+# [**Python Buildpack**](https://github.com/heroku/heroku-buildpack-python)
+# compiler.
+#
+# A [buildpack](http://devcenter.heroku.com/articles/buildpacks) is an adapter
+# between a Python application and Heroku's runtime.
+#
+# This script is invoked by [`bin/compile`](/).
+
+VENDORED_GIT_NAME="lapack-bin"
+VENDORED_GIT_REPO="git://github.com/VerdigrisTech/${VENDORED_GIT_NAME}.git"
+VENDORED_PACKAGE="lapack"
+
+# Syntax sugar
+source $BIN_DIR/utils
+
+cd .heroku
+
+# Check whether ATLAS already exists
+if [ -d "vendor/lib/atlas/liblapack.a" ]; then
+  puts-step "Using cached version of LAPACK binaries."
+else
+  puts-step "Downloading and extracting LAPACK binaries."
+
+  # Download and extract the compressed file into target vendor directory.
+  git clone ${VENDORED_GIT_REPO} > /dev/null
+  tar -xvf ${VENDORED_GIT_NAME}/${VENDORED_PACKAGE}.tar.gz > /dev/null
+fi
+
+export LAPACK=$(pwd)/vendor/lib/atlas/liblapack.a
+
+# Clean up
+if [ -d ${VENDORED_GIT_NAME} ]; then
+  rm -rf ${VENDORED_GIT_NAME}
+fi
+
+cd ..
