@@ -19,7 +19,7 @@ source $BIN_DIR/utils
 cd .heroku
 
 # Check whether ATLAS already exists
-if [ -d "vendor/lib/libgfortran.so.3" ]; then
+if [ -e "vendor/lib/libgfortran.so.3" ]; then
   puts-step "Using cached version of GNU Fortran binaries."
 else
   puts-step "Downloading and extracting GNU Fortran binaries."
