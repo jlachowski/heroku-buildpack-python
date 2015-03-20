@@ -19,7 +19,7 @@ source $BIN_DIR/utils
 cd .heroku
 
 # Check whether ATLAS already exists
-if [ -d "vendor/lib/libatlas.a" ]; then
+if [ -e "vendor/lib/libatlas.a" ]; then
   puts-step "Using cached version of ATLAS binaries."
 else
   puts-step "Downloading and extracting ATLAS binaries."
